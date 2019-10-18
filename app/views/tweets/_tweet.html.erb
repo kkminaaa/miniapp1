@@ -1,0 +1,14 @@
+<div class="col s12 m6 offset-m3">
+      <div class="card cyan darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= simple_format(tweet.text) %></span>
+          <span class="card-text"><%= time_ago_in_words(tweet.created_at) %></span>
+        </div>
+        <% if user_signed_in? && current_user.id == tweet.user_id%>
+        <div class="card-action">
+          <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+          <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+        </div>
+        <% end %>
+      </div>
+</div>

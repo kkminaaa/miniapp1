@@ -28,7 +28,7 @@
      <% if user_signed_in? %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/tweets/new"class="waves-effect waves-light btn  cyan darken-1 ">投稿する</a></li>
-        <li> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li><a data-method="delete" href="/users/sign_out"class="waves-effect waves-light btn  cyan darken-1 ">ログアウト</a></li>    
     </ul>
       <% else %>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
