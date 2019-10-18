@@ -1,0 +1,18 @@
+<body>
+<div class="contents row card-panel indigo lighten-5">
+    <% @tweets.each do |tweet| %>
+    <div class="col s12 m6 offset-m3">
+      <div class="card cyan darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= simple_format(tweet.text) %></span>
+        </div>
+        <div class="card-action">
+          <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+          <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+          
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</body>

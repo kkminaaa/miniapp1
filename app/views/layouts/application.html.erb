@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>miniapp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style type="text/css" href="./style.css"></style>
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <script>
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<nav>
+  <div class="nav-wrapper blue lighten-2">
+    <a href="/" class="brand-logo center">Blog</a>
+     <% if user_signed_in? %>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/tweets/new"class="waves-effect waves-light btn  cyan darken-1 ">投稿する</a></li>
+        <li> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    </ul>
+      <% else %>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/users/sign_in" class="waves-effect waves-light btn  cyan darken-1">ログイン</a></li>
+        <li><a href="/users/sign_up" class="waves-effect waves-light btn  cyan darken-1">新規登録</a></li>
+    </ul>
+      <% end %>
+  </div>
+</nav>
+
+<script type="text/javascript" src="./app.js"></script>
+
+<%= yield %>
+</body>
+</html>
